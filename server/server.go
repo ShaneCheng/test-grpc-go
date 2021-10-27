@@ -9,7 +9,8 @@ import (
 
 	//"time"
 
-	calculatorPB "github.com/pjchender/besg-grpc/proto/calculator"
+	//calculatorPB "github.com/pjchender/besg-grpc/proto/calculator"
+	calculatorPB "github.com/ShaneCheng/test-grpc-go/proto/calculator"
 	"google.golang.org/grpc"
 )
 
@@ -28,16 +29,13 @@ func (*Server) Sum(ctx context.Context, req *calculatorPB.CalculatorRequest) (*c
 	return res, nil
 }
 
-func (*Server) Test(ctx context.Context, req *calculatorPB.CalculatorRequest) (*calculatorPB.CalculatorResponse, error) {
-	fmt.Printf("Sum function is invoked with %v \n", req)
-
-	a := req.GetA()
-	b := req.GetB()
-
-	res := &calculatorPB.CalculatorResponse{
-		Result: a + b,
+func (*Server) Test(ctx context.Context, req *calculatorPB.ToBeRef) (*calculatorPB.Temp, error) {
+	fmt.Printf("Test function \n")
+	a := req.GetN1()
+	b := req.GetN2()
+	res := &calculatorPB.Temp{
+		N: [{a, b}],
 	}
-
 	return res, nil
 }
 

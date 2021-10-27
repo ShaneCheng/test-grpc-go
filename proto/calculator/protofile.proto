@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package calculator;
 option go_package = "proto/calculator";
-import "google/protobuf/empty.proto";
 
 message CalculatorRequest {
   int64 a = 1;
@@ -32,6 +31,6 @@ message Temp {
 
 service CalculatorService {
   rpc Sum(CalculatorRequest) returns (CalculatorResponse) {};
-  rpc Test(google.protobuf.Empty) returns (Temp) {};
+  rpc Test(ToBeRef) returns (Temp) {};
   rpc GetFibonacci(GetFibonacciRequest) returns(stream GetFibonacciResponse) {};
 }
