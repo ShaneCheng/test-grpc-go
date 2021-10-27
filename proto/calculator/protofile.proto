@@ -20,13 +20,18 @@ message GetFibonacciResponse {
   int64 num = 1;
 }
 
+message AAA {
+  int64 na1 = 1;
+  int64 na2 = 2;
+}
+
 message ToBeRef {
   int64 n1 = 1;
   int64 n2 = 2;
 }
 
 message Temp {
-  repeated ToBeRef n = 1;
+  repeated AAA n = 1;
 }
 
 service CalculatorService {

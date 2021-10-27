@@ -33,8 +33,9 @@ func (*Server) Test(ctx context.Context, req *calculatorPB.ToBeRef) (*calculator
 	fmt.Printf("Test function \n")
 	a := req.GetN1()
 	b := req.GetN2()
+	ns := &calculatorPB.AAA{a,b}
 	res := &calculatorPB.Temp{
-		N: [{a, b}],
+		N: [ns],
 	}
 	return res, nil
 }
